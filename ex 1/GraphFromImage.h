@@ -41,7 +41,6 @@ public:
 private:
     const bitmap_image& image;
     bool estPixelMemeCouleur(int x, int y, unsigned red, unsigned green, unsigned blue) const;
-    bool estPixelDansImage(int v) const;
 };
 
 #endif	/* GRAPHFROMIMAGE_H */
