@@ -40,7 +40,8 @@ public:
 // ELEMENTS PRIVES: LIBRE D'AJOUTER DES ELEMENTS
 private:
     const bitmap_image& image;
-    // **** ___VOTRE CODE CI-DESSOUS___ **** //
+    bool estPixelMemeCouleur(int x, int y, unsigned red, unsigned green, unsigned blue) const;
+    bool estPixelDansImage(int v) const;
 };
 
 #endif	/* GRAPHFROMIMAGE_H */
