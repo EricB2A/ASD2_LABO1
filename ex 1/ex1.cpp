@@ -27,6 +27,7 @@ int main(int argc, char** argv) {
     DFS<GraphFromImage> dfs(G);
 
     //Question BONUS: Pourquoi n'utilisons-nous pas la methode visite pour parcourir l'image ?
+    // C'est parse qu'elle est itérative et donc nécessite plus de ressources
     
     //on colore le centre de la pomme
     dfs.iterativeVisit( G.idx(250, 400), [&G, &image] (int v) {
