@@ -41,7 +41,7 @@ class GraphFromImage {
     const bitmap_image& image;
     // **** ___VOTRE CODE CI-DESSOUS___ **** //
     bool isIdxOutOfRange(int idx) const ;
-    bool pixelsSameColor(const int lPixel, const int rPixel) const;
+    bool isPixelSameColor(const int lPixel, const int rPixel) const;
 };
 
 #endif /* GRAPHFROMIMAGE_H */
