@@ -63,9 +63,9 @@ class SymbolGraph {
 
           // add the actors
           for (unsigned i = 1; i < names.size(); ++i) {
-              // if there is no entry for this name we add it - to avoid duplicated names
+              // if there is no entry for this name we add it - to avoid counting a
               it = indices.find(names[i]);
-              
+
               if (it == indices.end()) {
                   symbols.push_back(names[i]);
                   indices[names[i]] = count++;
