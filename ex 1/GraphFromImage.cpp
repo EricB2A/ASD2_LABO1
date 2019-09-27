@@ -6,6 +6,7 @@ GraphFromImage::GraphFromImage(const bitmap_image& i) : image(i) {
 
 // throws std::out_of_range
 GraphFromImage::Iterable GraphFromImage::adjacent(int v) const {
+    if(isIdxOutOfRange(v)) throw out_of_range("Sac à vin");
     Iterable neighbours;
 
     // add pixel from right side only if the pixel is not in the first column
