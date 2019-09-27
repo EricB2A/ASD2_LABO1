@@ -1,3 +1,16 @@
+/* ---------------------------
+Laboratoire	: 01
+Fichier     :  GraphFromImage.cpp
+Auteur(s) 	:  Eric Bousbaa, Ilias Goujgali, Fabio Marques
+Date		:  27.09.2019
+
+But 		: Implémentation de la classe GraphFromImage.
+
+Compilateur	: - Apple LLVM version 9.0.0 (clang-900.0.39.2)
+              - gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)
+--------------------------- */
+
+
 #include "GraphFromImage.h"
 
 using namespace std;
@@ -57,9 +70,11 @@ int GraphFromImage::y(int idx) const {
 int GraphFromImage::V() const {
     return (int) (image.width() * image.height());
 }
+
 bool GraphFromImage::isIdxOutOfRange(int idx) const {
     return (unsigned) idx > (image.width() * image.height()) - 1 || idx < 0;
 }
+
 bool GraphFromImage::isPixelSameColor(const int lPixel,
                                       const int rPixel) const {
     unsigned char lR, lG, lB;

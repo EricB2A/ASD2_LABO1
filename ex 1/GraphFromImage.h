@@ -1,6 +1,7 @@
-/* 
+/*
  * File:   GraphFromImage.h
  * Author: Olivier Cuisenaire
+ * Modified: Ilias Goujgali (2019), Eric Bousbaa (2019), Fabio Marques (2019)
  *
  * Created on 2. octobre 2014, 12:09
  */
@@ -39,7 +40,7 @@ class GraphFromImage {
     // ELEMENTS PRIVES: LIBRE D'AJOUTER DES ELEMENTS
    private:
     const bitmap_image& image;
-    // **** ___VOTRE CODE CI-DESSOUS___ **** //
+    
     bool isIdxOutOfRange(int idx) const ;
     bool isPixelSameColor(const int lPixel, const int rPixel) const;
 };

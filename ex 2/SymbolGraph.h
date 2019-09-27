@@ -1,13 +1,14 @@
-/* 
+/*
  * File:   SymbolGraph.h
  * Author: Olivier Cuisenaire
  * Modified: Valentin Minder (2018), Raphaël Racine (2018), Antoine Rochat (2019)
+ * Modified: Ilias Goujgali (2019), Eric Bousbaa (2019), Fabio Marques (2019)
  *
  * Created on 26. septembre 2014, 15:08
  */
 
 #ifndef SYMBOLGRAPH_H
-#define    SYMBOLGRAPH_H
+#define SYMBOLGRAPH_H
 
 #include <iostream>
 #include <fstream>
@@ -30,9 +31,6 @@ class SymbolGraph {
   vector<string> symbols; // contains the names of the nodes by indice
   map<string, int> indices; // contains the indices by name of the node
 
-  // A IMPLEMENTER: vos structures privées ici.
-
-
  public:
 
   ~SymbolGraph() {
@@ -50,8 +48,6 @@ class SymbolGraph {
       int count = 0;
       map<string, int>::iterator it;
 
-
-      // TODO: probably could be optimized/improved
       // read file and populate the "symbols" vector and the "indices" map
       while (std::getline(s, line)) {
           vector<string> names = split(line, '/');
