@@ -47,7 +47,7 @@ int GraphFromImage::x(int idx) const {
 int GraphFromImage::y(int idx) const {
     if (idx >= V() || idx < 0) throw std::out_of_range("out_of_range");
 
-
+    return (idx - x(idx)) / image.width();
 }
 
 int GraphFromImage::V() const {
