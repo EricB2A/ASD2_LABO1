@@ -27,6 +27,7 @@ int main(int argc, char** argv) {
     DFS<GraphFromImage> dfs(G);
 
     //Question BONUS: Pourquoi n'utilisons-nous pas la methode visite pour parcourir l'image ?
+    // Car visite est récursive et elle nécessite plus de ressource stackoverflow si l'image est trop grande
     
     //on colore le centre de la pomme
     dfs.iterativeVisit( G.idx(250, 400), [&G, &image] (int v) {
