@@ -27,8 +27,12 @@ int main(int argc, char** argv) {
     GraphFromImage G(image);
     DFS<GraphFromImage> dfs(G);
 
-    //Question BONUS: Pourquoi n'utilisons-nous pas la methode visite pour parcourir l'image ?
-    // Car visite est récursive et elle nécessite plus de ressource stackoverflow si l'image est trop grande
+    /*
+        Question BONUS: Pourquoi n'utilisons-nous pas la methode visite pour parcourir l'image ?
+	    Dans le cas d’un parcours récursif, nous pouvons nous attendre au 2 cas suivant :
+	        - parcours pré-ordonné : Modifie couleur du pixel avant de connaître voisins, donc info. biaisée.
+	        - parcours post-ordonné : Probablement une boucle infinie car couleur est modifié après avoir parcouru les voisins.
+     */
 
     //on colore le centre de la pomme
     dfs.iterativeVisit( G.idx(250, 400), [&G, &image] (int v) {
