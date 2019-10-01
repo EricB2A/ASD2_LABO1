@@ -32,6 +32,7 @@ int main(int argc, char** argv) {
 	    Dans le cas d’un parcours récursif, nous pouvons nous attendre au 2 cas suivant :
 	        - parcours pré-ordonné : Modifie couleur du pixel avant de connaître voisins, donc info. biaisée.
 	        - parcours post-ordonné : Probablement une boucle infinie car couleur est modifié après avoir parcouru les voisins.
+        De plus, il y a un risque d'overflow selon la taille de l'image
      */
 
     //on colore le centre de la pomme
