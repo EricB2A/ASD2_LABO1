@@ -21,20 +21,20 @@
 #include "Util.h"
 #include <string>
 
-using namespace std;
+
 
 template<typename GraphType>
 class SymbolGraph {
   typedef GraphType Graph;
  private:
-  Graph* g;
-  vector<string> symbols; // contains the names of the nodes by indice
-  map<string, int> indices; // contains the indices by name of the node
+  Graph* graph;
+  std::vector<std::string> symbols; // contains the names of the nodes by indice
+  std::map<std::string, int> indices; // contains the indices by name of the node
 
  public:
 
   ~SymbolGraph() {
-      delete g;
+      delete graph;
   }
 
   //creation du SymbolGraph a partir du fichier movies.txt
@@ -46,20 +46,21 @@ class SymbolGraph {
 
       std::ifstream s(filename);
       int count = 0;
-      map<string, int>::iterator it;
+      std::map<std::string, int>::iterator it;
 
       // read file and populate the "symbols" vector and the "indices" map
       while (std::getline(s, line)) {
-          vector<string> names = split(line, '/');
+          std::vector<std::string> names = split(line, '/');
 
           // the first name of the line is the movie title
-          string movieTitle = names[0];
+          std::string movieTitle = names[0];
           symbols.push_back(movieTitle);
           indices[movieTitle] = count++;
 
           // add the actors
           for (unsigned i = 1; i < names.size(); ++i) {
-              // if there is no entry for this name we add it - to avoid counting a
+
+              // if there is no entry for this name we add it - to avoid counting existing vertex
               it = indices.find(names[i]);
 
               if (it == indices.end()) {
@@ -70,18 +71,18 @@ class SymbolGraph {
       }
       // return to the file 's beginning
       s.clear();
-      s.seekg(0, ios::beg);
+      s.seekg(0, std::ios::beg);
 
       // init the graph with the number of symbols/indices/"nodes"
-      g = new Graph(symbols.size());
+      graph = new Graph(symbols.size());
 
       // browse the file again and add the edges between the movie and the actors
       while (std::getline(s, line)) {
-          vector<string> names = split(line, '/');
+          std::vector<std::string> names = split(line, '/');
           int movieNum = indices[names[0]];
 
           for (unsigned i = 1; i < names.size(); ++i) {
-              g->addEdge(movieNum, indices[names[i]]);
+              graph->addEdge(movieNum, indices[names[i]]);
           }
 
       }
@@ -105,8 +106,8 @@ class SymbolGraph {
 
   //symboles adjacents a un symbole
   std::vector<std::string> adjacent(const std::string& name) const {
-      vector<string> neighboursNames;
-      const list<int> neighboursIdxList = g->adjacent(indices.at(name));
+      std::vector<std::string> neighboursNames;
+      const std::list<int> neighboursIdxList = graph->adjacent(indices.at(name));
 
       for (int neighboursIdx : neighboursIdxList) {
           neighboursNames.push_back(symbols[neighboursIdx]);
@@ -116,7 +117,7 @@ class SymbolGraph {
   }
 
   const Graph& G() const {
-      return *g;
+      return *graph;
   }
 
 };
